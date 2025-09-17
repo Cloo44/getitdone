@@ -1,0 +1,315 @@
+/********************
+COULEURS
+********************/
+/********************
+TAILLE POLICES
+********************/
+p, input, li {
+  font-size: 1.8rem;
+  font-family: Lexend;
+  color: #101010;
+}
+
+/*******************************
+POLICES
+*******************************/
+@font-face {
+  font-family: DynaPuff;
+  src: url(../polices/DynaPuff/DynaPuff-VariableFont_wdth\,wght.ttf);
+  font-family: Lexend;
+  src: url(../polices/Lexend/Lexend-VariableFont_wght.ttf);
+}
+h2 {
+  font-size: 2rem;
+}
+
+select {
+  font-size: 3rem;
+}
+
+label {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 4rem;
+  color: #fffef0;
+}
+
+/********************************
+RESET
+********************************/
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Lexend;
+}
+
+:root {
+  font-size: 16pt;
+}
+
+a, a:visited {
+  color: #101010;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  margin-top: 25px;
+}
+
+/***********************************
+FONDS
+***********************************/
+body {
+  background-color: #fffef0;
+}
+
+header, footer {
+  background-color: #66979E;
+}
+
+.menuNav img {
+  width: 20%;
+  border-radius: 100px;
+}
+
+main #select_creneau, main #select_creneau:active, main #select_creneau:visited {
+  margin: 100px auto;
+  width: 45%;
+  background-color: #66979E;
+  padding: 20px;
+  border: none;
+  border-radius: 60px;
+  box-shadow: 4px 4px 10px rgb(141, 132, 132);
+  text-align: center;
+}
+main #newTask {
+  width: 150px;
+  height: auto;
+  color: #fffef0;
+  background-color: #66979E;
+  border: none;
+  border-radius: 100px;
+  box-shadow: 4px 4px 10px rgb(141, 132, 132);
+  padding: 20px 10px;
+}
+
+.btnRetour {
+  width: 100px;
+  position: absolute;
+  top: 266px;
+  left: 100px;
+  border-radius: 100px;
+  box-shadow: 4px 4px 10px rgb(141, 132, 132);
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* (1fr) la ligne centrale prend la place restante */
+  min-height: 100vh;
+}
+
+.menuNav {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  gap: 0;
+}
+.menuNav img {
+  align-self: center;
+  justify-self: center;
+}
+.menuNav h3 {
+  justify-self: end;
+  align-self: end;
+}
+.menuNav img {
+  width: 150px;
+  padding: 10px;
+}
+
+main {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.matrice {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+}
+.matrice__priorites {
+  background-color: #febbff;
+  grid-column: 1;
+  grid-row: 1;
+}
+.matrice__planifier {
+  background-color: #baf4c1;
+  grid-column: 2;
+  grid-row: 1;
+}
+.matrice__attente {
+  background-color: #fffba5;
+  grid-column: 1;
+  grid-row: 2;
+}
+.matrice__regulier {
+  background-color: #febcad;
+  grid-column: 2;
+  grid-row: 2;
+}
+.matrice #newTask {
+  position: absolute;
+}
+
+.navbar {
+  padding: 12px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+.navbar img {
+  width: 100px;
+  padding: 5px;
+}
+
+/***********************************
+PAGE CASE MATRICE
+***********************************/
+.taches {
+  display: flex;
+  flex-flow: column wrap;
+}
+.taches__titre {
+  margin: 80px auto;
+  width: 45%;
+  padding: 20px 20px;
+  border: none;
+  border-radius: 60px;
+  box-shadow: 4px 4px 10px rgb(141, 132, 132);
+  font-size: 3rem;
+  text-align: center;
+}
+.taches #titrePriorites {
+  background-color: #febbff;
+}
+.taches #titrePlanifier {
+  background-color: #baf4c1;
+}
+.taches #titreAttente {
+  background-color: #fffba5;
+}
+.taches #titreRegulier {
+  background-color: #febcad;
+}
+.taches__case {
+  width: 85%;
+  margin: 40px;
+  padding: 30px;
+  display: flex;
+  flex-flow: column wrap;
+  box-shadow: 4px 4px 10px rgb(141, 132, 132);
+  border-radius: 40px;
+  height: 800px;
+}
+.taches__case a {
+  position: relative;
+  top: 500px;
+  align-self: end;
+}
+.taches__case input[type=submit] {
+  width: 150px;
+  height: auto;
+  color: #fffef0;
+  background-color: #66979E;
+  border: none;
+  border-radius: 100px;
+  box-shadow: 4px 4px 10px rgb(141, 132, 132);
+  padding: 20px 10px;
+}
+
+.taches #casePriorites, .taches #casePrioritesCreation {
+  background-color: #febbff;
+}
+.taches #casePlanifier, .taches #casePlanifierCreation {
+  background-color: #baf4c1;
+}
+.taches #caseAttente, .taches #caseAttenteCreation {
+  background-color: #fffba5;
+}
+.taches #caseRegulier, .taches #caseRegulierCreation {
+  background-color: #febcad;
+}
+
+.taches form {
+  justify-content: center;
+  align-items: stretch;
+}
+.taches form label, .taches form input {
+  margin: 10px;
+  padding: 10px;
+}
+.taches form input[type=submit] {
+  margin-top: 100px;
+  align-self: center;
+}
+.taches form select {
+  font-size: 1.8rem;
+  padding: 10px;
+}
+.taches form select, .taches form input[type=text], .taches form input[type=date] {
+  box-shadow: -2px -2px 1px gray;
+}
+
+.matrice {
+  margin: 40px;
+}
+.matrice div {
+  width: 85%;
+  margin: 40px;
+  padding: 30px;
+  display: flex;
+  flex-flow: column wrap;
+  box-shadow: 4px 4px 10px rgb(141, 132, 132);
+  border-radius: 40px;
+  margin: 0;
+  height: 600px;
+}
+.matrice ul {
+  list-style: none;
+}
+.matrice ul li {
+  text-align: left;
+}
+
+/********************************
+POP-UP FORMULAIRE
+********************************/
+#caseNeutreCreation {
+  width: 90%;
+  height: 50%;
+  margin: auto;
+  background-color: #66979E;
+  display: none;
+  top: 500px;
+  left: 20px;
+}
+#caseNeutreCreation select, #caseNeutreCreation input[type=text], #caseNeutreCreation input[type=date] {
+  width: 80%;
+  margin: 10px;
+  padding: 10px 10px;
+}
+#caseNeutreCreation #newTaskCreation {
+  background-color: #fffef0;
+  color: #66979E;
+  margin: auto;
+}
+#caseNeutreCreation #labelFrequency, #caseNeutreCreation #frequencyTask {
+  display: none;
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,71 @@
+@use './utils/variables' as *;
+@use './utils/mixins' as *;
+@use './utils/extends' as *;
+
+/*******************************
+POLICES
+*******************************/
+@font-face {
+    font-family: DynaPuff;
+    src: url(../polices/DynaPuff/DynaPuff-VariableFont_wdth\,wght.ttf);
+
+    font-family: Lexend;
+    src: url(../polices/Lexend/Lexend-VariableFont_wght.ttf);
+}
+
+//test de taille
+p, input, li {
+    @extend %elementsTexte;
+}
+
+h2 {
+    font-size: $titrePage;
+}
+
+select {
+    font-size: $sous-titre;
+}
+
+label {
+    font-size: $titrePage;
+}
+
+
+h3 {
+    font-size: $menu;
+    color: $fond;
+}
+
+/********************************
+RESET
+********************************/
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Lexend;
+}
+
+:root {
+    font-size: 16pt;
+}
+
+a, a:visited {
+    color: $couleur-texte;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    margin-top: 25px;
+}
+
+/***********************************
+FONDS
+***********************************/
+body {
+    background-color: $fond;
+}
+
+header, footer {
+    background-color: $navigation;
+}

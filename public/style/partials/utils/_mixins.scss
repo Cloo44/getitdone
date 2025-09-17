@@ -1,0 +1,43 @@
+@use './variables' as *;
+
+// @mixin btnIcone {
+//     width: 300px;
+//     height: 600px;
+//     background-image: url('../../../images/icones/btnRetour.svg');
+//     background-size: cover;
+//     border-radius: 300px;
+//     border: none;
+//     box-shadow: $ombre;
+// }
+
+@mixin btnCreation {
+    width: 150px;
+    height: auto;
+    color: $fond;
+    background-color: $navigation;
+    border: none;
+    border-radius: 100px;
+    box-shadow: $ombre;
+    padding: 20px 10px;
+}
+
+@mixin postIt {
+    width: 85%;
+    margin: $margePostIt;
+    padding: $paddingPostIt;
+    display: flex;
+    flex-flow: column wrap;
+    box-shadow: $ombre;
+    border-radius: 40px;       
+}
+
+@mixin titrePostIt {
+    margin: 80px auto;
+    width: 45%;
+    padding: 20px 20px;
+    border: none;
+    border-radius: 60px;
+    box-shadow: $ombre;
+    font-size: $sous-titre;
+    text-align: center;
+}

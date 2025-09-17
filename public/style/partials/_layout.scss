@@ -1,0 +1,210 @@
+@use './utils/variables' as *;
+@use './utils/mixins' as *;
+@use './utils/extends' as *;
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* (1fr) la ligne centrale prend la place restante */
+    min-height: 100vh;
+}
+
+.menuNav {
+    width: 100%;
+    // display: flex;
+    // flex-flow: row wrap;
+    // justify-content: space-around;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    gap: 0;
+    img {
+        align-self: center;
+        justify-self: center;
+    }
+    h3 {
+        justify-self: end;
+        align-self: end;
+    }
+    // &__user {
+    //     // display: flex;
+    //     // flex-flow: row nowrap;
+    //     align-items: baseline;
+    //     width: 50%;
+    //     // height:100%;
+        
+        img {
+        width: 150px;
+        padding: 10px;
+    }
+    }
+// }
+
+main {
+    display: flex;
+    flex-flow: column wrap;
+
+}
+
+.matrice {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    &__priorites {
+        background-color: $priorites;
+        grid-column: 1;
+        grid-row: 1;
+        // align-self: stretch;
+    }
+    &__planifier {
+        background-color: $planifier;
+        grid-column: 2;
+        grid-row: 1;
+        // align-self: stretch;       
+    }
+    &__attente {
+        background-color: $attente;
+        grid-column: 1;
+        grid-row: 2;
+        // align-self: stretch;        
+    }
+    &__regulier {
+        background-color: $regulier;
+        grid-column: 2;
+        grid-row: 2;
+        // align-self: stretch;        
+    }
+    #newTask {
+        position: absolute;        
+    }
+}
+
+
+.navbar {
+    padding: 12px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    img {
+        width: 100px;
+        padding: 5px;
+    }
+}
+
+/***********************************
+PAGE CASE MATRICE
+***********************************/
+.taches {
+    display: flex;
+    flex-flow: column wrap;
+    &__titre {
+        @include titrePostIt;
+    }
+    #titrePriorites {
+        background-color: $priorites;
+    }
+    #titrePlanifier {
+        background-color: $planifier;
+    }
+    #titreAttente {
+        background-color: $attente;
+    }
+    #titreRegulier {
+        background-color: $regulier;
+    }
+    &__case {
+        @include postIt;
+        height: 800px;
+        a {
+            position: relative;
+            top: 500px;
+            align-self: end;
+        }
+        input[type="submit"] {
+            @include btnCreation;
+        }
+    }
+}
+
+.taches {
+    #casePriorites, #casePrioritesCreation {
+        background-color: $priorites;
+    }
+    #casePlanifier, #casePlanifierCreation {
+        background-color: $planifier;
+    }
+    #caseAttente, #caseAttenteCreation {
+        background-color: $attente;
+    }
+    #caseRegulier, #caseRegulierCreation {
+        background-color: $regulier;
+    }
+}
+
+.taches {
+    form {
+        // possède déjà flex-column grâce à l'include appliqué sur taches__case
+        justify-content: center;
+        align-items: stretch;
+        label, input {
+            margin: 10px;
+            padding: 10px;
+        }
+        input[type="submit"] {
+            margin-top: 100px;
+            align-self: center;
+        }
+        select {
+            font-size: $texte;
+            padding: 10px;
+        }
+        select, input[type="text"], input[type="date"] {
+            box-shadow: -2px -2px 1px gray;
+        }
+    }
+}
+
+
+.matrice {
+    margin: $margePostIt;
+    div {
+        @include postIt;
+        margin: 0;
+        height: 600px;
+    }
+    ul {
+        list-style: none;
+        li {
+            text-align: left;
+        }
+    }
+}
+
+
+/********************************
+POP-UP FORMULAIRE
+********************************/
+#caseNeutreCreation {
+    width: 90%;
+    height: 50%;
+    margin: auto;
+    background-color: $navigation;
+    display: none;
+    top: 500px;
+    left: 20px;
+    select, input[type="text"], input[type="date"] {
+        width: 80%;
+        margin: 10px;
+        padding: 10px 10px;
+    }
+    #newTaskCreation {
+        background-color: $fond;
+        color: $navigation;
+        margin: auto;
+    }
+    #labelFrequency, #frequencyTask {
+        display:none;
+    }
+};

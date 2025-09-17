@@ -1,0 +1,36 @@
+@use './utils/variables' as *;
+@use './utils/mixins' as *;
+@use './utils/extends' as *;
+
+.menuNav {
+    img {
+        width: 20%;
+        border-radius: 100px;
+    }
+}
+
+main {
+    // régler plus tard question du border qui s'ajoute après clic
+    #select_creneau, #select_creneau:active, #select_creneau:visited {
+        margin: 100px auto;
+        width: 45%;
+        background-color: $navigation;
+        padding: 20px;
+        border: none;
+        border-radius: 60px;
+        box-shadow: $ombre;
+        text-align: center;
+    }
+    #newTask {
+        @include btnCreation;    
+    }
+}
+
+.btnRetour {
+    width: 100px;
+    position: absolute;
+    top: 266px;
+    left: 100px;
+    border-radius: 100px;
+    box-shadow: $ombre;
+}
