@@ -5,12 +5,12 @@
     <head>
         <meta charset="utf-8">
         <title>Page 3bis case À planifier</title>
-        <link href="../../public/style/style.css" rel="stylesheet">
+        <link href="../public/style/style.css" rel="stylesheet">
     </head>
 
     <body>
 
-        <?php include './components/menuNav.php' ?>
+        <?php include 'App/View/components/menuNav.php' ?>
 
         <main>
             <section class="taches">
@@ -33,9 +33,9 @@
             
         </main>
         
-        <?php include './components/navbar.php' ?> 
+        <?php include 'App/View/components/navbar.php' ?> 
 
-        <script src="../../public/script/main.js"></script>
+        <script src="../public/script/main.js"></script>
     </body>
 
 </html>

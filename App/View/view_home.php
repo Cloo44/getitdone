@@ -4,7 +4,7 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Page timer</title>
+        <title>Inscription</title>
         <link href="../public/style/style.css" rel="stylesheet">
     </head>
 
@@ -13,7 +13,8 @@
     <?php include 'App/View/components/menuNav.php' ?>
 
         <main>
-            <p>timer</p>
+            <a href="./view_inscription.php">S'inscrire</a>
+            <a href="./view_connexion.php">Se connecter</a>
             
         </main>
         

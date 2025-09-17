@@ -1,0 +1,44 @@
+<?php
+
+namespace App\Controller;
+
+use App\Model\User;
+use App\Utils\Utilitaire;
+
+class UserController {
+    private User $user;
+
+    public function __construct() {
+        $this->user = new User();
+    }
+
+    public function addUser() {
+        $message = "";
+        if (isset ($_POST["submit"])) {
+            if (!empty($_POST["firstname"]) && !empty($_POST["lastname"]) && !empty($_POST["email"]) && !empty($_POST["mdp"])) {
+                $email = Utilitaire::sanitize($_POST["email"]);
+                $this->user->setEmail($email);
+
+                if (!$this->user->isUserByEmailExist()) {
+                    $firstname = Utilitaire::sanitize($_POST["firstname"]);
+                    $lastname = Utilitaire::sanitize($_POST["lastname"]);
+                    $mdp = Utilitaire::sanitize($_POST["mdp"]);
+
+                    $this->user->setFirstname($firstname);
+                    $this->user->setLastname($lastname);
+                    $this->user->setMdp($mdp);
+                    $this->user->hashPassword();
+
+                    $this->user->saveUser();
+
+                    $message = "Votre compte a bien été créé, " . $this->user->getFirstname() . " !";
+                } else {
+                    $message = "Ce compte existe déjà. Veuillez vous connecter.";
+                }            
+            } else {
+                $message = "Merci de remplir tous les champs.";
+            }
+        }
+        include 'App/View/view_inscription.php';
+    }
+}
