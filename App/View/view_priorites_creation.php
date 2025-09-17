@@ -16,7 +16,7 @@
             <section class="taches">
 
                 <div>
-                    <a href="view_priorites.php"><img src="../../public/images/icones/btnRetour.svg" alt="Retour à la page précédente" class="btnRetour"/></a>
+                    <a href="<?= BASE_URL ?>/task/priorites"><img src="../../public/images/icones/btnRetour.svg" alt="Retour à la page précédente" class="btnRetour"/></a>
 
                     <h2 class="taches__titre" id="titrePriorites">Nouvelle tâche</h2>
                 </div>

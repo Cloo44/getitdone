@@ -41,4 +41,25 @@ class UserController {
         }
         include 'App/View/view_inscription.php';
     }
+
+    public function connectUser() {
+        $message = "Veuillez entrer vos informations de connexion.";
+        if (isset ($_POST["submit"])) {
+            if (!empty($_POST["email"]) && !empty($_POST["mdp"])) {
+                $email = Utilitaire::sanitize($_POST["email"]);
+                $mdp = Utilitaire::sanitize($_POST["mdp"]);
+                if ($this->user->isUserByEmailExist()) {
+                    $userConnected = $this->user->findUserByEmail();
+                    if ($this->user->passwordVerify($userConnected->getMdp())) {
+                        $_SESSION["connected"] = true;
+                        $_SESSION["email"] = $email;
+                        $_SESSION["id"] = $userConnected->getIdUser();
+                        // header('Location: /task');
+                        echo "vous êtes connecté";
+                    }
+                }
+            }
+        }
+        include 'App/View/view_connexion.php';
+    }
 }

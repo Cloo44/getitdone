@@ -16,7 +16,7 @@
             <section class="taches">
 
                 <div>
-                    <a href="viewMatrice.php"><img src="../../public/images/icones/btnRetour.svg" alt="Retour à la page précédente" class="btnRetour"/></a>
+                    <a href="<?= BASE_URL ?>/task"><img src="../../public/images/icones/btnRetour.svg" alt="Retour à la page précédente" class="btnRetour"/></a>
 
                     <h2 class="taches__titre" id="titreRegulier">Tâches régulières</h2>
                 </div>
@@ -26,7 +26,7 @@
                         <li><input type="checkbox">envoyer un mail</input></li>
                         <li><input type="checkbox">créer fonctionnalité pour implémentation des tâches</input></li>
                     </ul>
-                    <a href="./view_regulier_creation.php"><input type="button" id="newTask"></input></a>                    
+                    <a href="<?= BASE_URL ?>/task/regulier/add"><input type="button" id="newTask"></input></a>                    
                 </div>
             </section>
 

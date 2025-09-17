@@ -16,7 +16,7 @@
             <section class="taches">
 
                 <div>
-                    <a href="view_planifier.php"><img src="../../public/images/icones/btnRetour.svg" alt="Retour à la page précédente" class="btnRetour"/></a>
+                    <a href="<?= BASE_URL ?>/task/planifier"><img src="../../public/images/icones/btnRetour.svg" alt="Retour à la page précédente" class="btnRetour"/></a>
 
                     <h2 class="taches__titre" id="titrePlanifier">Nouvelle tâche</h2>
                 </div>

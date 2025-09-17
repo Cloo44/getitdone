@@ -1,9 +1,9 @@
 <?php
 
 //importer les ressources
-include "./env.php";
+include './env.php';
 
-include "./vendor/autoload.php";
+include './vendor/autoload.php';
 
 //Analyse de l'URL avec parse_url() et retourne ses composants
 $url = parse_url($_SERVER['REQUEST_URI']);
@@ -21,57 +21,90 @@ $userController = new UserController();
 $homeController = new HomeController();
 
 
-if (!isset($_SESSION["connected"])) {
+if (!isset($_SESSION['connected'])) {
     //Test des routes version deconnecté
     switch (substr($path, strlen(BASE_URL))) {
-        case "/":
+        case '/':
             $homeController->home();
-            break;
-        // case "/user/connexion":
-        //     $userController->connexion();
-        //     break;
-        case "/user/register":
+            exit;
+        case '/user/connexion':
+            $userController->connectUser();
+            exit;
+        case '/user/register':
             $userController->addUser();
-            break;
+            exit;
         default:
-            echo "ERROR 404 NOT FOUND";
-            break;
+            echo 'ERROR 404 NOT FOUND';
+            exit;
     }
 } else {
     //Test des routes version connecté
     switch (substr($path, strlen(BASE_URL))) {
-        case "/":
+        case '/':
             $homeController->home();
-            break;
-        case "/category/all":
-            $categoryController->showAllCategory();
-            break;
-        // case "/user/deconnexion":
+            exit;
+        case '/task':
+            header("Location: /getitdone/App/View/viewMatrice.php");
+            exit;
+        case '/task/attente':
+            header('App/View/view_attente.php');
+            exit;
+        case '/task/attente/add':
+            header('App/View/view_attente_creation.php');
+            exit;
+        case '/task/planifier':
+            header ('App/View/view_planifier.php');
+            exit;
+        case '/task/planifier/add':
+            header ('App/View/view_planifier_creation.php');
+            exit;
+        case '/task/priorites':
+            header ('App/View/view_priorites.php');
+            exit;
+        case '/task/priorites/add':
+            header ('App/View/view_priorites_creation.php');
+            exit;
+        case '/task/regulier':
+            header ('App/View/view_regulier.php');
+            exit;
+        case '/task/regulier/add':
+            header ('App/View/view_regulier_creation.php');
+            exit;
+        case '/event':
+            header ('App/View/view_calendrier.php');
+            exit;
+        case '/timer':
+            header ('App/View/view_timer.php');
+            exit;
+        // case '/category/all':
+        //     $categoryController->showAllCategory();
+        //     exit;
+        // case '/user/deconnexion':
         //     $userController->deconnexion();
-        //     break;
-        // case "/category/delete":
+        //     exit;
+        // case '/category/delete':
         //     $categoryController->removeCategory();
-        //     break;
-        // case "/category/update":
+        //     exit;
+        // case '/category/update':
         //     $categoryController->modifyCategory();
-        //     break;
-        // case "/category/add":
+        //     exit;
+        // case '/category/add':
         //     $categoryController->addCategory();
-        //     break;
-        // case "/task/add":
+        //     exit;
+        // case '/task/add':
         //     $taskController->addTask();
-        //     break;
-        // case "/task/all":
+        //     exit;
+        // case '/task/all':
         //     $taskController->showAllTask();
-        //     break;
-        // case "/task/update":
+        //     exit;
+        // case '/task/update':
         //     $taskController->modifyTask();
-        //     break;
-        // case "/task/validate":
+        //     exit;
+        // case '/task/validate':
         //     $taskController->terminateTask();
-        //     break;
+        //     exit;
         default:
-            echo "ERROR 404 NOT FOUND";
-            break;
+            echo 'ERROR 404 NOT FOUND';
+            exit;
     }
 }
