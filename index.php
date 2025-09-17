@@ -43,6 +43,9 @@ if (!isset($_SESSION['connected'])) {
         case '/':
             $homeController->home();
             exit;
+        case '/user/deconnexion':
+                $userController->deconnect();
+                exit;
         case '/task':
             header("Location: /getitdone/App/View/viewMatrice.php");
             exit;

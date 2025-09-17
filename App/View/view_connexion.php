@@ -18,6 +18,10 @@
                 <input type="password" name="mdp" id="mdp" placeholder="Mot de passe">
                 <input type="submit" value="Se connecter" name="submit">
             </form>
+
+            <div>
+                <?= $message ?>
+            </div>
             
         </main>
         

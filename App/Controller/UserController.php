@@ -48,18 +48,25 @@ class UserController {
             if (!empty($_POST["email"]) && !empty($_POST["mdp"])) {
                 $email = Utilitaire::sanitize($_POST["email"]);
                 $mdp = Utilitaire::sanitize($_POST["mdp"]);
+                $this->user->setEmail($email);
+                $this->user->setMdp($mdp);
                 if ($this->user->isUserByEmailExist()) {
                     $userConnected = $this->user->findUserByEmail();
                     if ($this->user->passwordVerify($userConnected->getMdp())) {
                         $_SESSION["connected"] = true;
                         $_SESSION["email"] = $email;
                         $_SESSION["id"] = $userConnected->getIdUser();
-                        // header('Location: /task');
-                        echo "vous êtes connecté";
+                        header('Location: /getitdone/App/View/viewMatrice.php');
+                        // $message = "vous êtes connecté";
                     }
                 }
             }
         }
         include 'App/View/view_connexion.php';
+    }
+
+    public function deconnect() {
+        session_destroy();
+        header('Location: /getitdone');
     }
 }
