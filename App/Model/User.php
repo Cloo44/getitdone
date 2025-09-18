@@ -145,19 +145,4 @@ class User {
             throw new \Exception($e->getMessage());
         }
     }
-
-    // public function updatePassword() {
-    //     try {
-    //         $newMdp = $this->mdp;
-    //         $email = $this->email;
-    //         $request = "UPDATE user SET mdp = ? WHERE email = ?";
-    //         $req = $this->connexion->prepare($request);
-    //         $req->bindParam(1,$newMdp,\PDO::PARAM_STR);
-    //         $req->bindParam(2,$email,\PDO::PARAM_STR);
-    //         $req->execute();
-    //     }
-    //     catch (\Exception $e) {
-    //         throw new \Exception($e->getMessage());
-    //     }
-    // }
 }
