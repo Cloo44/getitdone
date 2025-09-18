@@ -9,6 +9,12 @@ use App\Utils\Utilitaire;
 
 
 class TaskController {
+    private Task $task;
+    
+    public function __construct() {
+        $this->task = new Task();
+    }
+
     public function taskChart()
     {
         $name = $_GET["name"] ?? "";

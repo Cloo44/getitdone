@@ -16,11 +16,13 @@ session_start();
 use App\Controller\UserController;
 use App\Controller\HomeController;
 use App\Controller\TaskController;
+use App\Controller\ProjectController;
 
 // Instanciation des classes Controller
 $userController = new UserController();
 $homeController = new HomeController();
 $taskController = new TaskController();
+$projectController = new ProjectController();
 
 
 if (!isset($_SESSION['connected'])) {
@@ -46,10 +48,19 @@ if (!isset($_SESSION['connected'])) {
             $homeController->home();
             exit;
         case '/user/deconnexion':
-                $userController->deconnect();
-                exit;
+            $userController->deconnect();
+            exit;
+        case '/user/profil':
+            $userController->userProfil();
+            exit;
         case '/task':
             $taskController->taskChart();
+            exit;
+        case '/project':
+            $projectController->formProject();
+            exit;
+        case '/project/add':
+            $projectController->addProject();
             exit;
         case '/task/attente':
             header('App/View/view_attente.php');
@@ -81,33 +92,6 @@ if (!isset($_SESSION['connected'])) {
         case '/timer':
             header ('App/View/view_timer.php');
             exit;
-        // case '/category/all':
-        //     $categoryController->showAllCategory();
-        //     exit;
-        // case '/user/deconnexion':
-        //     $userController->deconnexion();
-        //     exit;
-        // case '/category/delete':
-        //     $categoryController->removeCategory();
-        //     exit;
-        // case '/category/update':
-        //     $categoryController->modifyCategory();
-        //     exit;
-        // case '/category/add':
-        //     $categoryController->addCategory();
-        //     exit;
-        // case '/task/add':
-        //     $taskController->addTask();
-        //     exit;
-        // case '/task/all':
-        //     $taskController->showAllTask();
-        //     exit;
-        // case '/task/update':
-        //     $taskController->modifyTask();
-        //     exit;
-        // case '/task/validate':
-        //     $taskController->terminateTask();
-        //     exit;
         default:
             echo 'ERROR 404 NOT FOUND';
             exit;

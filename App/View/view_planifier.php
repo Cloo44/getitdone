@@ -5,7 +5,7 @@
     <head>
         <meta charset="utf-8">
         <title>Page 3 case À planifier</title>
-        <link href="../public/style/style.css" rel="stylesheet">
+        <link href="./public/style/style.css" rel="stylesheet">
     </head>
 
     <body>
@@ -36,7 +36,7 @@
         
         <?php include 'App/View/components/navbar.php' ?>  
 
-        <script src="../public/script/main.js"></script>
+        <script src="./public/script/main.js"></script>
     </body>
 
 </html>

@@ -8,10 +8,10 @@ use App\Model\User;
 class Project {
     private int $idProject;
     private string $title;
-    private \DateTimeImmutable $createdAt;
+    private ?\DateTimeImmutable $createdAt;
     private ?string $imgProfile;
     private User $lead;
-    private ?array $members;
+    private User $member;
 
     private \PDO $connexion;
 
@@ -43,12 +43,31 @@ class Project {
         $this->lead = $lead;
         return $this;
     }
-    public function getmembers(): array {
-        return $this->members;
+    public function getMember(): User {
+        return $this->member;
     }
 
-    public function setmembers(array $members) {
-        $this->members = $members;
+    public function setMember(User $member) {
+        $this->member = $member;
+        return $this;
+    }
+
+    public function saveProject() {
+        $title = $this->title;
+        $lead = $this->lead;
+        $member = $this->member;
+
+        $request = "INSERT INTO project (title, id_lead, id_member) VALUE(?,?,?)";
+
+        $req = $this->connexion->prepare($request);
+        $req->bindParam(1, $title, \PDO::PARAM_STR);
+        $req->bindParam(2, $lead, \PDO::PARAM_INT);
+        $req->bindParam(3, $member, \PDO::PARAM_INT);
+        $req->execute();
+        $id = $this->connexion->lastInsertId('project');
+
+        $this->idProject = $id;
+
         return $this;
     }
 }

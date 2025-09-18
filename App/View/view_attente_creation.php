@@ -35,7 +35,7 @@
         
         <?php include 'App/View/components/navbar.php' ?>
 
-        <script src="../public/script/main.js"></script>
+        <script src="./public/script/main.js"></script>
     </body>
 
 </html>

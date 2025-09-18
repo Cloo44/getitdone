@@ -13,6 +13,7 @@
     <?php include 'App/View/components/menuNav.php' ?>
 
         <main>
+            <h3>Nom du projet</h3>
             <select name="creneau" id="select_creneau">
                 <option value="opt1">Aujourd'hui</option>
                 <option value="opt2">Cette semaine</option>

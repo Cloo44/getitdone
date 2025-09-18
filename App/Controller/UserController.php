@@ -32,9 +32,10 @@ class UserController {
                     $this->user->saveUser();
 
                     $message = "Votre compte a bien été créé, " . $this->user->getFirstname() . " !";
-                    header('Refresh:2; url=/');
+                    header('Refresh:2; url=/getitdone/');
                 } else {
                     $message = "Ce compte existe déjà. Veuillez vous connecter.";
+                    header('Refresh:2; url=/getitdone/');
                 }            
             } else {
                 $message = "Merci de remplir tous les champs.";
@@ -58,13 +59,18 @@ class UserController {
                         $_SESSION["email"] = $email;
                         $_SESSION["id"] = $userConnected->getIdUser();
                         $_SESSION["firstname"] = $userConnected->getFirstname();
-                        header('Location: /task');
+                        header('Location: /getitdone/task');
                         // $message = "vous êtes connecté";
                     }
                 }
             }
         }
         include 'App/View/view_connexion.php';
+    }
+
+    public function userProfil() {
+        $name = $_GET["name"] ?? "";
+        include "App/View/view_profil.php";
     }
 
     public function deconnect() {
