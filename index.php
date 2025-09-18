@@ -15,10 +15,12 @@ session_start();
 // Import des classes Controller
 use App\Controller\UserController;
 use App\Controller\HomeController;
+use App\Controller\TaskController;
 
 // Instanciation des classes Controller
 $userController = new UserController();
 $homeController = new HomeController();
+$taskController = new TaskController();
 
 
 if (!isset($_SESSION['connected'])) {
@@ -37,7 +39,7 @@ if (!isset($_SESSION['connected'])) {
             echo 'ERROR 404 NOT FOUND';
             exit;
     }
-} else {
+} elseif (isset ($_SESSION['connected'])) {
     //Test des routes version connecté
     switch (substr($path, strlen(BASE_URL))) {
         case '/':
@@ -47,7 +49,7 @@ if (!isset($_SESSION['connected'])) {
                 $userController->deconnect();
                 exit;
         case '/task':
-            header("Location: /getitdone/App/View/viewMatrice.php");
+            $taskController->taskChart();
             exit;
         case '/task/attente':
             header('App/View/view_attente.php');

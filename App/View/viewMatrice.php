@@ -5,7 +5,7 @@
     <head>
         <meta charset="utf-8">
         <title>Matrice de tâches</title>
-        <link href="../public/style/style.css" rel="stylesheet">
+        <link href="./public/style/style.css" rel="stylesheet">
     </head>
 
     <body>

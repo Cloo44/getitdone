@@ -13,9 +13,12 @@
     <?php include 'App/View/components/menuNav.php' ?>
 
         <main>
+            <?php if (!isset($_SESSION["connected"])) :?>
             <a href="<?= BASE_URL ?>/user/register">S'inscrire</a>
             <a href="<?= BASE_URL ?>/user/connexion">Se connecter</a>
-            
+            <?php elseif (isset($_SESSION["connected"])) :?>
+            <a href="<?= BASE_URL ?>/user/deconnexion">Se déconnecter</a>
+            <?php endif ?>
         </main>
         
         <?php include 'App/View/components/navbar.php' ?>

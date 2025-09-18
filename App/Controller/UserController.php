@@ -32,6 +32,7 @@ class UserController {
                     $this->user->saveUser();
 
                     $message = "Votre compte a bien été créé, " . $this->user->getFirstname() . " !";
+                    header('Refresh:2; url=/');
                 } else {
                     $message = "Ce compte existe déjà. Veuillez vous connecter.";
                 }            
@@ -56,7 +57,8 @@ class UserController {
                         $_SESSION["connected"] = true;
                         $_SESSION["email"] = $email;
                         $_SESSION["id"] = $userConnected->getIdUser();
-                        header('Location: /getitdone/App/View/viewMatrice.php');
+                        $_SESSION["firstname"] = $userConnected->getFirstname();
+                        header('Location: /task');
                         // $message = "vous êtes connecté";
                     }
                 }
